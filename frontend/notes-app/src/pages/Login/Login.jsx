@@ -1,6 +1,7 @@
 import React from 'react'
 import Navbar from '../../components/Navbar/Navbar'
 import { Link } from 'react-router-dom'
+import PasswordInput from "../../components/Input/PasswordInput";
 
 const Login = () => {
   return (
@@ -17,7 +18,7 @@ const Login = () => {
               placeholder="Email" 
               className="input-box"  />
 
-       
+            <PasswordInput/>
 
             <button type="submit" className="btn-primary">Login</button>
 
