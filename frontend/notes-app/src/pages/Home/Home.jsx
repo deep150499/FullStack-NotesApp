@@ -139,7 +139,7 @@ const Home = () => {
     getAllNotes();
     getUserInfo();
     return () => {};
-  },[]);
+  }, []);
 
   return (
     <>

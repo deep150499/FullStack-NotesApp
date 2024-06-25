@@ -43,7 +43,7 @@ const AddEditNotes = ({
   };
 
   const editNote = async () => {
-    const noteId = noteData._id
+    const noteId = noteData._id;
 
     try {
       const response = await axiosInstance.put("/edit-note/" + noteId, {
@@ -53,7 +53,7 @@ const AddEditNotes = ({
       });
 
       if (response.data && response.data.note) {
-        showToastMessage("Note Updated Successfully", 'update');
+        showToastMessage("Note Updated Successfully", "update");
         getAllNotes();
         onClose();
       }
@@ -83,10 +83,10 @@ const AddEditNotes = ({
 
     setError("");
 
-    if(type === 'edit'){
-      editNote()
-    }else {
-      addNewNote()
+    if (type === "edit") {
+      editNote();
+    } else {
+      addNewNote();
     }
   };
 
@@ -133,7 +133,7 @@ const AddEditNotes = ({
         className="btn-primary font-medium mt-5 p-3"
         onClick={handleAddNote}
       >
-       {type === 'add' ?  "ADD" : "Update"}
+        {type === "add" ? "ADD" : "Update"}
       </button>
     </div>
   );

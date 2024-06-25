@@ -11,7 +11,7 @@ const SignUp = () => {
   const [password, setPassword] = useState("");
   const [error, setError] = useState(null);
 
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   const handleSignUp = async (e) => {
     e.preventDefault();
@@ -31,7 +31,7 @@ const SignUp = () => {
       return;
     }
 
-    setError('')
+    setError("");
 
     // SignUp API Call
 
@@ -41,21 +41,24 @@ const SignUp = () => {
         email: email,
         password: password,
       });
-      
-      // Handle successful registration response 
-      if(response.data && response.data.error){
-        setError(response.data.message)
-        return
+
+      // Handle successful registration response
+      if (response.data && response.data.error) {
+        setError(response.data.message);
+        return;
       }
 
-      if(response.data && response.data.accessToken){
-        localStorage.setItem("token", response.data.accessToken)
-        navigate('/dashboard')
+      if (response.data && response.data.accessToken) {
+        localStorage.setItem("token", response.data.accessToken);
+        navigate("/dashboard");
       }
-
     } catch (error) {
       // Handle login error
-      if (error.response && error.response.data && error.response.data.message) {
+      if (
+        error.response &&
+        error.response.data &&
+        error.response.data.message
+      ) {
         setError(error.response.data.message);
       } else {
         setError("An unexpected error occurred. Please try again.");
@@ -96,7 +99,9 @@ const SignUp = () => {
 
             {error && <p className="text-red-500 text-xs pb-1">{error}</p>}
 
-            <button type="submit" className="btn-primary">Create Account</button>
+            <button type="submit" className="btn-primary">
+              Create Account
+            </button>
 
             <p className="text-sm text-center mt-4">
               Already have an account?{" "}
